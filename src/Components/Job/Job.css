@@ -1,0 +1,372 @@
+.job-page {
+  display: flex;
+  background-color: #f9f9f9;
+  padding: 50px;
+  min-height: 100vh;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.search-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 100px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 60px;
+}
+
+.input-with-button {
+  position: relative;
+  width: 70%;
+}
+.search_btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  padding: 0 10px;
+}
+.search-button {
+  padding: 8px 16px;
+  background-color: #003cb4;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  width: 110px;
+}
+
+.search-button:hover {
+  background-color: #0769d8;
+}
+
+.search-icon {
+  position: absolute;
+  top: 30%;
+  left: 10px;
+  color: #000000;
+  font-size: 16px;
+}
+.filter_tool {
+  display: none;
+}
+.job_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.main-content {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.job_card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.job-sidebar {
+  display: block;
+  width: 320px;
+  background-color: #fff;
+  padding: 20px;
+  margin-right: 20px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.job-sidebar h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.job-sidebar hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+.filter-section {
+  margin-top: 10px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.accordion-header h4 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.sub-accordions-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.sub-accordion {
+  width: 48%;
+}
+
+.sub-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 10px;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+}
+
+.sub-accordion-header h5 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #fff;
+  position: absolute;
+  width: 150px;
+  z-index: 10;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 8px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f8ff;
+}
+
+.accordion-body label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.2;
+  color: #0f1172;
+  margin-bottom: 8px;
+}
+
+.accordion-body input[type="checkbox"] {
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border-radius: 1.5px;
+}
+
+.country-search {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  background-color: #faf7f7;
+  font-size: 12px;
+}
+
+.no-radius {
+  border-radius: 0;
+}
+
+.show-more-less {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.show-more-link {
+  color: #0980ff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.show-more-link:hover {
+  color: #0980ff;
+}
+
+.job-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.job-content p {
+  font-size: 16px;
+  color: #666;
+}
+
+.accordion-arrow {
+  font-size: 14px;
+  color: #000000;
+  transition: transform 0.3s ease;
+}
+
+.accordion-header.open .accordion-arrow,
+.sub-accordion-header.open .accordion-arrow {
+  transform: rotate(180deg);
+}
+.close_icon {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 789px) {
+  .job-page {
+    padding: 0;
+  }
+  .job_container {
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .job-sidebar {
+    display: none;
+    width: 100%;
+    margin: 10px;
+  }
+  .input-with-button {
+    width: 100%;
+    padding: 10px;
+  }
+  .filter_tool {
+    display: flex;
+  }
+  .search-icon {
+    top: 40%;
+    left: 20px;
+  }
+  .search_btns {
+    width: 30%;
+    top: 32%;
+    right: 30px;
+  }
+  .search-container {
+    margin: 0;
+  }
+  .close_icon {
+    display: flex;
+  }
+  .search-input {
+    margin: 10px 0;
+  }
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .accordion-header h4 {
+    font-size: 14px;
+  }
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #fff;
+  position: absolute;
+  width: 150px;
+  z-index: 10;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    width: 100px;
+  }
+}
+
+.show-more-link {
+  color: #0980ff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .show-more-link {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-button {
+    font-size: 12px;
+    width: 90px;
+  }
+}

@@ -1,0 +1,172 @@
+.job-form {
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  margin-top: 5rem;
+  box-shadow: 2px 1px 9px #808077;
+}
+
+h2 {
+  text-align: center;
+  color: #004a7c;
+}
+
+label {
+  font-weight: bold;
+  color: #005691;
+  margin-top: 10px;
+  display: block;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 80px;
+}
+
+.job-type-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-start;
+}
+
+.job-type-options button {
+  background-color: #fff;
+  color: #3b5160;
+  border: 1px solid #d9dce1;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.job-type-options button .plus {
+  color: #3b5160;
+  font-weight: bold;
+}
+
+.job-type-options button.selected {
+  background-color: #004a7c;
+  color: #fff;
+  border-color: #004a7c;
+}
+
+.job-type-options button:hover {
+  background-color: #e2e6ea;
+}
+
+.job-type-options button.selected:hover {
+  background-color: #00375f;
+}
+
+.location-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.location-group {
+  flex: 1;
+}
+
+.skills-input {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.skills-input input {
+  flex: 2;
+  padding: 9px;
+}
+
+.skills-input button {
+  flex: 0.6;
+  padding: 8px;
+  background: #004a7c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.skill-box {
+  background: #e0f2f1;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.skill-box span {
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.skill-box span:hover {
+  color: darkred;
+}
+
+.company-logo-preview {
+  display: block;
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background: #004a7c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .job-form {
+    width: 90%;
+  }
+
+  .job-type-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-container {
+    justify-content: center;
+  }
+
+  .location-section {
+    flex-direction: column;
+  }
+}
