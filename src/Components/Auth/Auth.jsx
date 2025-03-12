@@ -1,44 +1,57 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import "./Auth.css";
 import { Link } from "react-router-dom";
-
+import RegisterAPI from "../../API/Auth/Register.api";
+import LoginAPI from "../../API/Auth/Login.api";
 const Auth = () => {
   const [isRegistering, setIsRegistering] = useState(false);
-  const [formData, setFormData] = useState({
-    companyEmail: "",
-    password: "",
-    companyName: "",
-    rememberMe: false,
-  });
+  const [companyName, setCompanyName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const toggleForm = () => {
     setIsRegistering(!isRegistering);
   };
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === "checkbox" ? checked : value,
-    });
-  };
-
   const validate = () => {
-    let tempErrors = {};
-    if (!formData.companyEmail)
-      tempErrors.companyEmail = "Company email is required";
-    if (!formData.password) tempErrors.password = "Password is required";
-    if (isRegistering && !formData.companyName)
-      tempErrors.companyName = "Company name is required";
-    setErrors(tempErrors);
-    return Object.keys(tempErrors).length === 0;
+    if (isRegistering == true) {
+      if (companyName == "" && password == "" && email == "" && role == "") {
+        alert("Please fill all the fields");
+        return false;
+      }
+    } else {
+      if (password == "" && email == "") {
+        alert("Please fill all the fields");
+        return false;
+      }
+    }
+    return true;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (validate()) {
-      alert(isRegistering ? "Registration successful" : "Login successful");
+      if (isRegistering) {
+        const data = {
+          CompanyName: companyName,
+          email: email,
+          password: password,
+          role: role,
+        };
+        RegisterAPI(setLoading, setErrors, data, setIsRegistering);
+      } else {
+        const data = {
+          email: email,
+          password: password,
+        };
+        LoginAPI(setLoading, setErrors, data, navigate);
+      }
     }
   };
 
@@ -72,8 +85,8 @@ const Auth = () => {
                     type="text"
                     name="companyName"
                     placeholder="Company Name"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
                   />
                 </div>
                 {errors.companyName && (
@@ -92,12 +105,12 @@ const Auth = () => {
                   type="email"
                   name="companyEmail"
                   placeholder="Company Email"
-                  value={formData.companyEmail}
-                  onChange={handleInputChange}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              {errors.companyEmail && (
-                <div className="error-message">{errors.companyEmail}</div>
+              {errors.email && (
+                <div className="error-message">{errors.email}</div>
               )}
             </div>
 
@@ -111,8 +124,8 @@ const Auth = () => {
                   type="password"
                   name="password"
                   placeholder="Password"
-                  value={formData.password}
-                  onChange={handleInputChange}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               {errors.password && (
@@ -120,16 +133,15 @@ const Auth = () => {
               )}
             </div>
 
-            <div className="remember-me">
-              <input
-                type="checkbox"
-                id="rememberMe"
-                name="rememberMe"
-                checked={formData.rememberMe}
-                onChange={handleInputChange}
-              />
-              <label htmlFor="rememberMe">Remember Me</label>
-            </div>
+            {isRegistering && (
+              <div className="select_role">
+                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                  <option value="Select Role">Select Role</option>
+                  <option value="Basic">Basic</option>
+                  <option value="Business">Business</option>
+                </select>
+              </div>
+            )}
 
             {!isRegistering && (
               <div className="forgot-password">
@@ -145,12 +157,13 @@ const Auth = () => {
 
             {/* Submit Button */}
             <button
+              disabled={loading}
               type="submit"
               className={`action-btn ${
                 isRegistering ? "register-btn" : "login-btn"
               }`}
             >
-              <Link to="/"> {isRegistering ? "Register" : "Login"}</Link>
+              {isRegistering ? "Register" : "Login"}
             </button>
           </form>
         </div>
