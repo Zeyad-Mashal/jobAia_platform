@@ -33,8 +33,8 @@ function AppContent() {
   return (
     <>
       {/* Show Navbar on all pages except those in hideNavbarOnPaths */}
-      {!hideNavbarOnPaths.includes(location.pathname) && <Header />}
 
+      {!hideNavbarOnPaths.includes(location.pathname) && <Header />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Auth />} />

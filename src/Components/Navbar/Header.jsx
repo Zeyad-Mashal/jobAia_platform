@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import logo from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 const Header = () => {
   const token = localStorage.getItem("token");
   const [logedIn, setLogedIn] = useState(false);
@@ -54,7 +55,9 @@ const Header = () => {
             {token ? (
               <p>bateeeee5</p>
             ) : (
-              <Navbar.Link href="auth">Login</Navbar.Link>
+              <Link to="/auth" className="btn btn-primary">
+                Login
+              </Link>
             )}
           </>
         )}
