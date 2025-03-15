@@ -13,16 +13,15 @@ const RegisterAPI = async (setloading, setError, data, setIsRegistering) => {
 
         const result = await response.json();
 
-        if (response.ok) {
+        if (response.ok) {  // 200, 201, 202
             setIsRegistering(false)
             setloading(false);
         } else {
             if (response.status == 400) {
-                setError(result.message)
+                setError(result.err)
                 setloading(false);
             } else if (response.status == 401) {
                 console.log(result.err);
-
                 setError(result.err)
                 setloading(false);
             }

@@ -78,13 +78,13 @@ const Auth = () => {
             {isRegistering && (
               <div className="input-container">
                 <label className="label-required">
-                  Company Name <span className="red-star">*</span>
+                  Name <span className="red-star">*</span>
                 </label>
                 <div className="input-wrapper">
                   <input
                     type="text"
-                    name="companyName"
-                    placeholder="Company Name"
+                    name="Name"
+                    placeholder="Name"
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
                   />
@@ -97,14 +97,14 @@ const Auth = () => {
 
             <div className="input-container">
               <label className="label-required">
-                Company Email <span className="red-star">*</span>
+                Email <span className="red-star">*</span>
               </label>
               <div className="input-wrapper">
                 <FaEnvelope className="input-icon" />
                 <input
                   type="email"
-                  name="companyEmail"
-                  placeholder="Company Email"
+                  name="Email"
+                  placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />

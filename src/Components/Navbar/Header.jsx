@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
-
+import logo from "../../assets/images/logo.png";
 const Header = () => {
+  const token = localStorage.getItem("token");
   const [logedIn, setLogedIn] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -18,8 +19,8 @@ const Header = () => {
     <Navbar fluid rounded className=" z-50 w-full bg-white shadow-md">
       <Navbar.Brand href="https://flowbite-react.com">
         <img
-          src="/favicon.svg"
-          className="mr-3 h-6 sm:h-9"
+          src={logo}
+          className="mr-3 h-6 sm:h-10"
           alt="Flowbite React Logo"
         />
       </Navbar.Brand>
@@ -49,7 +50,13 @@ const Header = () => {
             <Dropdown.Item>Sign out</Dropdown.Item>
           </Dropdown>
         ) : (
-          <Navbar.Link href="#">Login</Navbar.Link>
+          <>
+            {token ? (
+              <p>bateeeee5</p>
+            ) : (
+              <Navbar.Link href="auth">Login</Navbar.Link>
+            )}
+          </>
         )}
 
         <Navbar.Toggle />
@@ -59,8 +66,6 @@ const Header = () => {
           Home
         </Navbar.Link>
         <Navbar.Link href="#">About</Navbar.Link>
-        <Navbar.Link href="#">Services</Navbar.Link>
-        <Navbar.Link href="#">Pricing</Navbar.Link>
         <Navbar.Link href="#">Contact</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
